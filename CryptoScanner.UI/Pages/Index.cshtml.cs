@@ -1,3 +1,4 @@
+using CryptoScanner.App.Api;
 using CryptoScanner.Data.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
@@ -12,7 +13,6 @@ namespace CryptoScanner.UI.Pages
         public string Image { get; set; }
         public Decimal CurrentPrice { get; set; }
         public double PriceChangePercentage24H { get; set; }
-
         [BindProperty]
         public string CoinName { get; set; }
         public void OnGet()
@@ -65,7 +65,7 @@ namespace CryptoScanner.UI.Pages
                 PriceChangePercentage24H = -0.04934,
             };
             Coins.Add(newCoin6);
-            //Kör call till mellanlagret som kallar på API. Mellanlagret behöver omvandla till coinmodel och returnera en lista av coin models.
+            //KÃ¶r call till mellanlagret som kallar pÃ¥ API. Mellanlagret behÃ¶ver omvandla till coinmodel och returnera en lista av coin models.
             //Ska klienten eller mellanlagret filtrera ut de 10 som ska visas?
         }
     }
