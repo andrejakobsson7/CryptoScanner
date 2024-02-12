@@ -1,7 +1,16 @@
+using CryptoScanner.Data.Database;
+using CryptoScanner.Data.Services;
+using Microsoft.EntityFrameworkCore;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddRazorPages();
+
+// Connectionstring
+string? connectionString = builder.Configuration.GetConnectionString("DbConnection");
+builder.Services.AddDbContext<AppDbContext>(options => options.UseSqlServer(connectionString));
+builder.Services.AddScoped<ICoinRepository, CoinRepository>();
 
 var app = builder.Build();
 
