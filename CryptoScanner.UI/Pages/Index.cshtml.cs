@@ -15,7 +15,7 @@ namespace CryptoScanner.UI.Pages
 
         public void OnGet()
         {
-            CoinApiCaller caller = new();
+
 
 
         }
