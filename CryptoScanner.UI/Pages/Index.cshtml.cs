@@ -1,3 +1,4 @@
+using CryptoScanner.App.Api;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
@@ -14,6 +15,8 @@ namespace CryptoScanner.UI.Pages
 
         public void OnGet()
         {
+            CoinApiCaller caller = new();
+
 
         }
     }
