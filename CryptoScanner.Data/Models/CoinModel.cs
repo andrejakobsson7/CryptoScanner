@@ -12,8 +12,8 @@ namespace CryptoScanner.Data.Models
         [Key]
         public int Id { get; set; }
         public string? Name { get; set; }
-        public string? Image  { get; set; }
-        public Decimal CurrentPrice { get; set; }
-        public double PriceChangePercentage24H { get; set; }
+        public string? Image { get; set; }
+        public int? CurrentPrice { get; set; }
+        public double? PriceChangePercentage24H { get; set; }
     }
 }
