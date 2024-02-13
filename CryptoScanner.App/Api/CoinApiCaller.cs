@@ -1,12 +1,6 @@
 ﻿using CryptoScanner.Data.Database;
 using CryptoScanner.Data.Models;
 using Newtonsoft.Json;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Net.Http.Json;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace CryptoScanner.App.Api
 {
@@ -53,6 +47,33 @@ namespace CryptoScanner.App.Api
 
             //comment
 
+        }
+
+        public void PopulateList()
+        {
+            var tenCoins = context.Coins.OrderBy(CoinModel => CoinModel.CurrentPrice).Take(10);
+            foreach (var coin in tenCoins)
+            {
+                CoinManager.CoinManager.coinList.Add(coin);
+            }
+        }
+
+        public void AddToCoinList(CoinModel coinToAdd)
+        {
+            if (coinToAdd == null)
+            {
+                CoinManager.CoinManager.coinList.Add(coinToAdd);
+            }
+        }
+
+        public void SortByAscending()
+        {
+            CoinManager.CoinManager.coinList.OrderBy(CoinModel => CoinModel.CurrentPrice);
+        }
+
+        public void SortByDescending()
+        {
+            CoinManager.CoinManager.coinList.OrderByDescending(CoinModel => CoinModel.CurrentPrice);
         }
     }
 }
