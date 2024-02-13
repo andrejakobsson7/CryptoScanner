@@ -1,13 +1,19 @@
 ﻿@page
 @model IndexModel
+@using CryptoScanner.UI.Viewmodels
 @{
     ViewData["Title"] = "Home page";
 }
-<div class="search-container d-flex justify-content-center">
-    <form method="post">
+<div class="search-container d-flex justify-content-between">
+    <form method="post" id="search">
         <input type="text" asp-for="@Model.CoinName" placeholder="Search cryptocurrency" />
         <input type="submit" value="Search" />
     </form>
+    <form method="post" id="sort">
+        <label for="sort">Order by:</label>
+        <select name="OrderType" id="sort" asp-for="@Model.OrderType" asp-items="@Model.OrderOptions" onchange="handleSort()"></select>
+    </form>
+
 </div>
 <div class="row h-100 justify-content-center">
     @if (Model.Coins == null || Model.Coins.Any() == false)
@@ -48,6 +54,11 @@
         }
     }
 </div>
+<script>
+    function handleSort() {
+        document.getElementById("sort").submit();
+    }
+</script>
 
 
 <style>

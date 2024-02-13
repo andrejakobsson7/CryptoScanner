@@ -35,7 +35,6 @@ namespace CryptoScanner.App.Api
                         Image = item.Image,
                         PriceChangePercentage24H = item.PriceChangePercentage24h
 
-
                     };
 
                     context.Add(newCoin);
