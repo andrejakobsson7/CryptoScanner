@@ -83,7 +83,6 @@ namespace CryptoScanner.App.Api
         }
 
 
-
         private async Task<CoinModel> GetById(String id)
         {
             HttpResponseMessage response = await Client.GetAsync($"coins/{id}");
