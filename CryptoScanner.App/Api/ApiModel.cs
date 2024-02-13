@@ -18,7 +18,7 @@ namespace CryptoScanner.App.Api
         public string Image { get; set; }
 
         [JsonProperty("current_price")]
-        public int? CurrentPrice { get; set; }
+        public decimal? CurrentPrice { get; set; }
 
         [JsonProperty("market_cap")]
         public long? MarketCap { get; set; }
