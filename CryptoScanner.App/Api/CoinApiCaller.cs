@@ -58,11 +58,14 @@ namespace CryptoScanner.App.Api
             }
         }
 
-        public void AddToCoinList(CoinModel coinToAdd)
+        public void AddToCoinList(string coinToAdd)
         {
-            if (coinToAdd == null)
+
+            CoinModel coin = (CoinModel)context.Coins.Where(c => c.Name.ToLower() == coinToAdd.ToLower());
+
+            if (coin != null)
             {
-                CoinManager.CoinManager.coinList.Add(coinToAdd);
+                CoinManager.CoinManager.coinList.Add(coin);
             }
         }
 
