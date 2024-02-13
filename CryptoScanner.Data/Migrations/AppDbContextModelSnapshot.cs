@@ -30,8 +30,8 @@ namespace CryptoScanner.Data.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<int?>("CurrentPrice")
-                        .HasColumnType("int");
+                    b.Property<decimal?>("CurrentPrice")
+                        .HasColumnType("decimal(18,2)");
 
                     b.Property<string>("Image")
                         .HasColumnType("nvarchar(max)");
@@ -45,6 +45,48 @@ namespace CryptoScanner.Data.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Coins");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            CurrentPrice = 519641m,
+                            Image = "https://assets.coingecko.com/coins/images/1/large/bitcoin.png?1696501400",
+                            Name = "bitcoin",
+                            PriceChangePercentage24H = 0.46958
+                        },
+                        new
+                        {
+                            Id = 2,
+                            CurrentPrice = 27718m,
+                            Image = "https://assets.coingecko.com/coins/images/279/large/ethereum.png?1696501628",
+                            Name = "ethereum",
+                            PriceChangePercentage24H = 1.7411700000000001
+                        },
+                        new
+                        {
+                            Id = 3,
+                            CurrentPrice = 10.6m,
+                            Image = "https://assets.coingecko.com/coins/images/325/large/Tether.png?1696501661",
+                            Name = "tether",
+                            PriceChangePercentage24H = 1.94537
+                        },
+                        new
+                        {
+                            Id = 4,
+                            CurrentPrice = 3415.12m,
+                            Image = "https://assets.coingecko.com/coins/images/825/large/bnb-icon2_2x.png?1696501970",
+                            Name = "bnb",
+                            PriceChangePercentage24H = 0.86814999999999998
+                        },
+                        new
+                        {
+                            Id = 5,
+                            CurrentPrice = 1184.13m,
+                            Image = "https://assets.coingecko.com/coins/images/4128/large/solana.png?1696504756",
+                            Name = "solana",
+                            PriceChangePercentage24H = 3.3079700000000001
+                        });
                 });
 #pragma warning restore 612, 618
         }
